@@ -1,0 +1,5 @@
+outs:
+- md5: 6b3db4d5dd6d20cf7ccbc337702bc3e9
+  size: 154114
+  hash: md5
+  path: pipeline_random_forest.pkl
