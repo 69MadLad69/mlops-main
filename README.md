@@ -62,7 +62,7 @@ mlops-lab1-iris/
 ```bash
 git clone <URL-репозиторію>
 
-python -m venv .venv
+python -m venv .venv #py -3.11 -m venv .venv   #if you have newer version
 source .venv/bin/activate          # Windows: .venv\Scripts\activate
 
 pip install -r requirements.txt
@@ -98,6 +98,8 @@ dvc pull
 python -m src.data.create_dataset
 dvc add data/raw/dataset.csv
 git add data/raw/dataset.csv.dvc data/raw/.gitignore
+mkdir D:\dvc-storage
+dvc remote add -d myremote D:/dvc-storage
 git commit -m "Add Iris dataset under DVC"
 dvc push
 ```
@@ -181,7 +183,7 @@ pytest tests/ -q
 | **Test F1 (weighted)** | **1.0000** |
 | **CV mean accuracy** | 0.9583 ± 0.0373 |
 
-> **Зауваження.** Test accuracy = 1.0 досягнута лише на одній фіксованій test-вибірці (30 зразків). Cross-validation показує реалістичніше значення ~0.96. Іris — дуже простий датасет, тому всі моделі тримаються в діапазоні 0.93–1.00.
+**Зауваження.** Test accuracy = 1.0 досягнута лише на одній фіксованій test-вибірці (30 зразків). Cross-validation показує реалістичніше значення ~0.96. Іris — дуже простий датасет, тому всі моделі тримаються в діапазоні 0.93–1.00.
 
 ### 5.2 Аналіз
 - **Random Forest** дає стабільні результати (CV std ≤ 0.017) — мала дисперсія, передбачуваний production-кандидат.
@@ -268,12 +270,3 @@ git checkout develop && git merge feature/new-experiment
 | Інші результати ніж у README | Перевірити: чи зафіксовано `random_state=42` у `pipeline.py`, чи зроблено `dvc pull` для даних |
 | `WARNING: artifact_path is deprecated` від MLflow | Безпечне попередження сумісності, на результати не впливає |
 | Тести `pytest` не знаходять модулі | Запускати з кореня проєкту, переконатись що є `src/__init__.py` |
-
----
-
-## 10. Що далі (поза рамками Лаб. №1)
-
-- Винести експерименти в DVC pipelines (`dvc.yaml`) — повна відтворюваність ланцюжка обробки.
-- Додати CI на GitHub Actions: автозапуск тестів + лінтерів.
-- Деплой моделі через MLflow Models у Docker / FastAPI.
-- Hyperparameter tuning через Optuna з логуванням у MLflow.

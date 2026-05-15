@@ -47,7 +47,7 @@ pytest tests/ -q
 
 echo ""
 echo "================================================================"
-echo "✅ Setup завершено."
+echo "Setup завершено."
 echo ""
 echo "Далі:"
 echo "  • MLflow UI:           mlflow ui --port 5000"
