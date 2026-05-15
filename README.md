@@ -196,7 +196,7 @@ pytest tests/ -q
 
 ---
 
-## 6. Використання натренованої моделі
+## 6. Приклад використання натренованої моделі
 
 ### 6.1 З локального pickle
 ```python
@@ -247,23 +247,7 @@ python -m src.experiments.run_experiments
 
 ---
 
-## 8. Стратегія Git-гілок
-
-- `main` — стабільна гілка, в неї потрапляють лише перевірені результати.
-- `develop` — поточна розробка.
-- `feature/<name>` — окремі експерименти або фічі (`feature/add-knn`, `feature/hyperparam-tuning`).
-
-Робочий цикл:
-```bash
-git checkout -b feature/new-experiment
-# … код, експерименти …
-git add . && git commit -m "Add new experiment"
-git checkout develop && git merge feature/new-experiment
-```
-
----
-
-## 9. Troubleshooting
+## 8. Troubleshooting
 
 | Проблема | Рішення |
 |---|---|
