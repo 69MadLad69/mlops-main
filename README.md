@@ -9,7 +9,7 @@
 **Група:** ТР-51мп 
 **Дата:** 15.05.2026 
 
-## 1. Опис проєкту
+## 1. Опис проекту
 
 Навчальний проєкт демонструє повний MLOps-цикл на класичній задачі класифікації трьох видів ірисів:
 
@@ -23,7 +23,7 @@
 
 ---
 
-## 2. Структура проєкту
+## 2. Структура проекту
 
 ```
 mlops-lab1-iris/
@@ -72,7 +72,7 @@ source .venv/bin/activate          # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 3.3 Ініціалізація Git + DVC (тільки при першому створенні проєкту)
+### 3.3 Ініціалізація Git + DVC (тільки при першому створенні проекту)
 
 ```bash
 git init
@@ -269,8 +269,8 @@ git checkout develop && git merge feature/new-experiment
 |---|---|
 | `FileNotFoundError: data/raw/dataset.csv` | Виконати `dvc pull` або `python -m src.data.create_dataset` |
 | `mlflow: command not found` | Активувати venv: `source .venv/bin/activate` |
-| MLflow UI порожній | Запускати команди з кореня проєкту (де є `mlruns/`) |
+| MLflow UI порожній | Запускати команди з кореня проекту (де є `mlruns/`) |
 | `dvc push` помилка з правами | Перевірити, чи існує директорія remote (`/tmp/dvc-storage`) і чи є запис до неї |
 | Інші результати ніж у README | Перевірити: чи зафіксовано `random_state=42` у `pipeline.py`, чи зроблено `dvc pull` для даних |
 | `WARNING: artifact_path is deprecated` від MLflow | Безпечне попередження сумісності, на результати не впливає |
-| Тести `pytest` не знаходять модулі | Запускати з кореня проєкту, переконатись що є `src/__init__.py` |
+| Тести `pytest` не знаходять модулі | Запускати з кореня проекту, переконатись що є `src/__init__.py` |
